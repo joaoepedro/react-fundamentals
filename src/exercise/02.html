@@ -4,10 +4,8 @@
 <body>
   <div id="root"></div>
 
-  <!-- 💣 remove this line
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
-  💣 remove this line -->
 
   <script type="module">
     const rootElement = document.getElementById('root')
@@ -15,11 +13,34 @@
     // You're going to re-implement this code using React!
     // 💣 So go ahead and delete this implementation (or comment it out for now)
     // These three lines are similar to React.createElement
+
+    /*
     const element = document.createElement('div')
     element.textContent = 'Hello World' // 💰 in React, you set this with the "children" prop
     element.className = 'container' // 💰 in React, this is also called the "className" prop
     // This is similar to ReactDOM.render
     rootElement.append(element)
+    */
+
+    // Props: propriedades
+    // A propriedade children corresponde ao conteúdo colocado entre as tags de abertura e fechamento de um elemento
+    // const props = { className: 'container', children: 'Hello World!!!' }
+
+    // A propriedade children PODE ser também um vetor de outros elementos criados em react
+    // const element = React.createElement('div', props)
+    // const element = React.createElement('div', { className: 'container', children: 'Hello World!!!' })
+
+    // Parâmetros do método React.createElement()
+    // 1º - Tipo de elemento que será criado
+    // 2º - Lista de propriedades (props), que pode incluir o contéudo interno (children)
+    // 3º - Conteúdo interno (children), caso as props nao tenham sido informadas
+
+    const element = React.createElement('div', { className: 'container', children: [
+        React.createElement('span', null, 'hello '),           // Essas duas formas
+        React.createElement('span', { children:'world!'})      // geram o mesmo resultado
+    ] })
+    // "Encaixar" o novo elemento na hierarquia da página, atribuindo um "pai" para ele 
+    ReactDOM.render(element, rootElement)
 
     // 🐨 Please re-implement the regular document.createElement code above
     // with these React API calls
