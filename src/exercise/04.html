@@ -50,18 +50,37 @@
                 </div>
             )
         }
+
+        function Soma({ num1, num2 }) {
+            return (
+                <React.Fragment>
+                    {/* React.Fragment permite agrupar vários elementos HTML dentro de um mesmo
+                componente React e retorná-los em conjunto */}
+                    <p>O resultado é </p>
+                    <div>{num1 + num2}</div>
+                </React.Fragment>
+            )
+
+            // <>
+            // substitui React.Fragment
+            // </>
+        }
         // Renderizar: processar um código JS para gerar elemento HTML 
 
         // Usando o componente personalizado representado pela função Message
         // como se fosse uma tag HTML e sus atributos. Por convenção, funções (e, consequencia as tags)
         // que representam componentes personalizados em React sao nomeadas com iniciais maiusculas justamente
         // para diferencia-los de tags HTML comuns
-         
+
         element = (
             <div class='container'>
+                {/* Quando for necessário passar props cujo valor NAO SEJA string, é necessário
+                passar o valor entre chaves {} */}
+                {/* <Soma num1='100' num2='200' />*/}
+                <Soma num1={100} num2={200} />
                 <Message subject='mamae' greeting='alo' />
                 <Message greeting='Bem vindo' subject='humano' />
-                { Message({subject: 'joao', greeting:'eai'})}
+                { Message({ subject: 'joao', greeting: 'eai' })}
             </div>
         )
 
